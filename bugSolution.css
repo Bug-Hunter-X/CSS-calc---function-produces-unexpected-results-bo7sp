@@ -1,0 +1,7 @@
+To fix the issue of unexpected calculations with `calc()`, ensure that:
+
+1. **Unit Consistency:**  Use consistent units throughout your `calc()` expression.  Mixing percentages, pixels, and ems can lead to unexpected outcomes.  For example, `calc(100% - 10px)` is generally fine, but avoid mixing percentages with things like ems without being 100% sure of what the ems represent. 
+2. **Parent Sizing:** Make sure the parent element's size is fully determined *before* using `calc()` to subtract from it.  If the parent's size relies on the child element with the `calc()` function, it might create a circular dependency. 
+3. **Operator Precedence:** Use parentheses `()` to explicitly define the order of operations in complex `calc()` expressions.  This can prevent unexpected results due to incorrect operator precedence. 
+
+If working with flexbox, consider alternative layout approaches if `calc()` proves problematic in that specific context.  Sometimes simplifying the layout can improve predictability.
